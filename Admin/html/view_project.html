@@ -1,0 +1,540 @@
+<section>
+    <div class="view_project_details outer_body">
+        <div class="monitoring_card">
+            <div class="project_name">
+                <h2>Infrastructure Development</h2>
+                <button type="button" class="btn ms-auto use_button btn_view"
+                    onclick="loginContent('project')">Back</button>
+                <button type="button" class="btn ms-2 use_button btn_view" data-bs-target="#EditModal"
+                    data-bs-toggle="modal">Edit</button>
+            </div>
+            <div class="row">
+                <div class="col-md-7 project_graphs">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="project_graphs_head">
+                                <h6>Annual Expenditure</h6>
+                                <div class="monitering_dropdown ms-auto me-2">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Financial Year</option>
+                                        <option value="1">2022-23</option>
+                                        <option value="2">2021-22</option>
+                                        <option value="3">2020-21</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <canvas id="project_expenditure" height="120"></canvas>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="project_graphs_head">
+                                <h6>Total Progress Rate</h6>
+                            </div>
+                            <div class="project_graphs_pieChart">
+                                <canvas id="work_progress"></canvas>
+                                <h2 class="pieChart_value">38%</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="project_graphs_head">
+                                <h6>Total Expenditure Rate</h6>
+                            </div>
+                            <div class="project_graphs_pieChart">
+                                <canvas id="budget_progress"></canvas>
+                                <h2 class="pieChart_value">48%</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="project_details_data">
+                                <div class="project_data">
+                                    <h1>Work Name</h1>
+                                    <h2>Infrastructure Development</h2>
+                                </div>
+                                <div class="project_data">
+                                    <h1>Project Name</h1>
+                                    <h2>Nuagaon</h2>
+                                </div>
+                                <div class="project_data">
+                                    <h1>Project Number</h1>
+                                    <h2>3754</h2>
+                                </div>
+                                <div class="project_data">
+                                    <h1>District</h1>
+                                    <h2>Ganjam</h2>
+                                </div>
+                                <div class="project_data">
+                                    <h1>Constituency</h1>
+                                    <h2>Sanakhemundi</h2>
+                                </div>
+                                <div class="project_data">
+                                    <h1>Block</h1>
+                                    <h2>Dharakote</h2>
+                                </div>
+                                <div class="project_data">
+                                    <h1>Scheme</h1>
+                                    <h2>CWA</h2>
+                                </div>
+                                <div class="project_data">
+                                    <h1>Gram Panchayat</h1>
+                                    <h2>NA</h2>
+                                </div>
+                                <div class="project_data">
+                                    <h1>Total Budget</h1>
+                                    <h2>10,00,00,000</h2>
+                                </div>
+                                <div class="project_data">
+                                    <h1>Start Date</h1>
+                                    <h2>10-Jan-1022</h2>
+                                </div>
+                                <div class="project_data">
+                                    <h1>End Date</h1>
+                                    <h2>NA</h2>
+                                </div>
+                                <div class="project_data">
+                                    <h1>Work Status Panchayat</h1>
+                                    <h2>On-Going</h2>
+                                </div>
+                                <div class="project_data">
+                                    <h1>Total Budget</h1>
+                                    <h2>10,00,00,000</h2>
+                                </div>
+                                <div class="project_data">
+                                    <h1>Start Date</h1>
+                                    <h2>10-Jan-1022</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="project_map_details">
+                                <div class="responsive-map">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7515.202249035208!2d84.57159973863666!3d19.64434348115377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a22c8458ea3aaa7%3A0xb11c76f6dd343405!2sDharakote%2C%20Odisha%20761107!5e0!3m2!1sen!2sin!4v1690031806473!5m2!1sen!2sin"
+                                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Edit Modal -->
+<div class="modal fade" id="EditModal" aria-hidden="true" aria-labelledby="EditModal" data-bs-backdrop="static"
+    data-bs-keyboard="false" tabindex="-1" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Edit Project Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="project_name">
+                            <h2 class="modal_SubHeading">Static Information</h2>
+                        </div>
+                        <div class="upload_data">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="" class="col-form-label">Project Name</label>
+                                        </div>
+                                        <div class="col">
+                                            <div class="monitering_dropdown">
+                                                <select class="form-select">
+                                                    <option selected>Select Project</option>
+                                                    <option value="1">Project 1</option>
+                                                    <option value="2">Project 2</option>
+                                                    <option value="3">Project 3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="" class="col-form-label">District</label>
+                                        </div>
+                                        <div class="col">
+                                            <div class="monitering_dropdown">
+                                                <select class="form-select">
+                                                    <option selected>Select District</option>
+                                                    <option value="1">Ganjam</option>
+                                                    <option value="2">Gajapati</option>
+                                                    <option value="3">Khurdha</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="" class="col-form-label">Block</label>
+                                        </div>
+                                        <div class="col">
+                                            <div class="monitering_dropdown">
+                                                <select class="form-select">
+                                                    <option selected>Select Block</option>
+                                                    <option value="1">Project 1</option>
+                                                    <option value="2">Project 2</option>
+                                                    <option value="3">Project 3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="" class="col-form-label">Gram Panchayat</label>
+                                        </div>
+                                        <div class="col">
+                                            <div class="monitering_dropdown">
+                                                <select class="form-select">
+                                                    <option selected>Select Gram Panchayat</option>
+                                                    <option value="1">Ganja</option>
+                                                    <option value="2">Rambha</option>
+                                                    <option value="3">Humma</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="" class="col-form-label">Canal Type</label>
+                                        </div>
+                                        <div class="col">
+                                            <div class="monitering_dropdown">
+                                                <select class="form-select">
+                                                    <option selected>Select Canal Type</option>
+                                                    <option value="1">Type 1</option>
+                                                    <option value="2">Type 2</option>
+                                                    <option value="3">Type 3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="" class="col-form-label">Canal Name</label>
+                                        </div>
+                                        <div class="col">
+                                            <div class="monitering_dropdown">
+                                                <select class="form-select">
+                                                    <option selected>Select Canal</option>
+                                                    <option value="1">Champa Canal</option>
+                                                    <option value="2">Ghadahad Barrage Canal</option>
+                                                    <option value="3">Kushabhadra Canal</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="canalLangth" class="col-form-label">Length of Canal</label>
+                                        </div>
+                                        <div class="col monitering_input">
+                                            <input type="text" id="canalLangth" class="form-control" placeholder="Enter length of canal in KM">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="projectname" class="col-form-label">Constituency</label>
+                                        </div>
+                                        <div class="col">
+                                            <div class="monitering_dropdown">
+                                                <select class="form-select">
+                                                    <option selected>Select Constituency</option>
+                                                    <option value="1">Berhampur</option>
+                                                    <option value="2">Sorada</option>
+                                                    <option value="3">Sanakhemund</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="catchment" class="col-form-label">Catchment in Sq</label>
+                                        </div>
+                                        <div class="col monitering_input">
+                                            <input type="text" id="catchment" class="form-control" placeholder="Enter Catchment">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <div class="project_name">
+                            <h2 class="modal_SubHeading">Dynamic Information</h2>
+                        </div>
+                        <div class="upload_data">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="" class="col-form-label">Name of The Work</label>
+                                        </div>
+                                        <div class="col monitering_input">
+                                            <input type="text" id="" class="form-control" required placeholder="Enter work name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="" class="col-form-label">Work No.</label>
+                                        </div>
+                                        <div class="col monitering_input">
+                                            <input type="text" id="" class="form-control" placeholder="Enter work no.">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="" class="col-form-label">Contractor Name</label>
+                                        </div>
+                                        <div class="col monitering_input">
+                                            <input type="text" id="" class="form-control" placeholder="Enter contractor name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="" class="col-form-label">Contractor Class</label>
+                                        </div>
+                                        <div class="col monitering_input">
+                                            <input type="text" id="" class="form-control" placeholder="Enter contractor class">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="" class="col-form-label">Work Value</label>
+                                        </div>
+                                        <div class="col monitering_input">
+                                            <input type="text" id="" class="form-control" placeholder="Enter work value">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="" class="col-form-label">Scheme</label>
+                                        </div>
+                                        <div class="col monitering_input">
+                                            <input type="text" id="" class="form-control" placeholder="Enter scheme name">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="" class="col-form-label">Date of Commencement</label>
+                                        </div>
+                                        <div class="col monitering_input">
+                                            <input type="date" id="" class="form-control" placeholder="Enter date of commencement">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row g-3 mb-3 align-items-center">
+                                        <div class="col-auto upload_data_label">
+                                            <label for="" class="col-form-label">Stipulated Date of Completion</label>
+                                        </div>
+                                        <div class="col monitering_input">
+                                            <input type="date" id="" class="form-control" placeholder="Enter date of completion">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 mt-3">
+                        <div class="mb-3 text-center">
+                            <button type="button" id="updateButton" class="btn use_button btn_view" data-bs-dismiss="modal" aria-label="Close">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit/Update Toaster -->
+<div aria-live="polite" aria-atomic="true" class="position-static">
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+        <div  id="updateButtonToast" class="successToast toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Data Uploaded Successfully
+                </div>
+                <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Toaster -->
+<script>
+    var toastTrigger = document.getElementById('updateButton')
+    var toastLiveExample = document.getElementById('updateButtonToast')
+    if (toastTrigger) {
+        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+        toastTrigger.addEventListener('click', () => {
+            toastBootstrap.show()
+        })
+    }
+</script>
+
+<script src="../js/view_project.js"></script>
+
+<!-- Project Expenditure Half-Pie Chart -->
+<script>
+    var PCTCtx = document.getElementById("project_expenditure").getContext("2d");
+    var PCTChart = new Chart(PCTCtx, {
+        type: 'bar',
+        data: {
+            labels: ["April", "May", "June", "July", "August", "September", "October", "November", "December", "January", "February", "March"],
+            datasets: [{
+                label: "Expenditure",
+                type: "bar",
+                stack: "Base",
+                backgroundColor: "#4ac290",
+                borderRadius: 5,
+                barThickness: 20,
+                maxBarThickness: 40,
+                data: [30000, 28000, 31000, 32000, 33000, 42000, 30000, 34000, 35000, 36000, 28000, 20000],
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: false,
+                        text: "Month"
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    display: true,
+                    title: {
+                        display: true,
+                        text: "Expenditure"
+                    },
+                    ticks: {
+                        stepSize: 10000
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                    }
+                }
+            },
+        }
+    });
+</script>
+
+<!-- Work Process Half-Pie Chart -->
+<script>
+    var PCTCtx = document.getElementById("work_progress").getContext("2d");
+    var PCTChart = new Chart(PCTCtx, {
+        type: 'doughnut',
+        data: {
+            labels: [
+                'Completed',
+                'Pending'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [300, 100],
+                backgroundColor: [
+                    '#f0a400',
+                    '#f9dd53'
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            cutout: '70%',
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                    }
+                }
+            },
+        },
+    });
+</script>
+
+<!-- Annual (Month-wise) Budget Progress Line Graph -->
+<script>
+    var PCTCtx = document.getElementById("budget_progress").getContext("2d");
+    var PCTChart = new Chart(PCTCtx, {
+        type: 'doughnut',
+        data: {
+            labels: [
+                'Utilized',
+                'Remaining'
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [180, 320],
+                backgroundColor: [
+                    '#cc5240',
+                    '#f18675'
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            cutout: '70%',
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'bottom',
+                    labels: {
+                        usePointStyle: true,
+                        pointStyle: 'circle',
+                    }
+                }
+            },
+        },
+    });
+</script>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link rel="stylesheet" href="../assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="../assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="../assets/plugins/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../assets/plugins/Toaster/toast.style.min.css">
+</head>
+
+<body>
+    <div class="loader" id="loader"></div>
+    <section>
+        <div class="container">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <nav class="sidebar">
+                <header>
+                    <div class="image-text">
+                        <span class="image">
+                            <img src="../assets/images/logo.png" alt="">
+                        </span>
+                        <div class="text logo-text">
+                            <span class="name">CE Monitoring</span>
+                            <span class="profession">Government of Odisha</span>
+                        </div>
+                    </div>
+                    <i class="bi bi-list toggle"></i>
+                </header>
+                <div class="menu-bar">
+                    <div class="menu">
+                        <ul class="menu-links">
+                            <li class="nav-link active_menu">
+                                <a onclick="loginContent('dashboard')">
+                                    <i class="bi bi-house-fill icon"></i>
+                                    <span class="text nav-text">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a onclick="loginContent('project')">
+                                    <i class="bi bi-calendar2-check-fill icon"></i>
+                                    <span class="text nav-text">Project</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a onclick="loginContent('expenditure')">
+                                    <i class="bi bi-pie-chart-fill icon"></i>
+                                    <span class="text nav-text">Budget & Expenditure</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a onclick="loginContent('reports')">
+                                    <i class="bi bi-file-bar-graph-fill icon"></i>
+                                    <span class="text nav-text">Reports</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a onclick="loginContent('authorities')">
+                                    <i class="bi bi-people-fill icon"></i>
+                                    <span class="text nav-text">Authorities</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="#">
+                                    <i class="bi bi-bank2 icon"></i>
+                                    <span class="text nav-text">PMKSY AIBP</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="#">
+                                    <i class="bi bi-bar-chart-fill icon"></i>
+                                    <span class="text nav-text">IBDP</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="#">
+                                    <i class="bi bi-file-diff-fill icon"></i>
+                                    <span class="text nav-text">WSIDP</span>
+                                </a>
+                            </li>
+                            <li class="nav-link">
+                                <a href="#">
+                                    <i class="bi bi-building icon"></i>
+                                    <span class="text nav-text">DPIW</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bottom-content">
+                        <li class="logout_button mb-3">
+                            <a href="#">
+                                <i class="bi bi-box-arrow-right icon"></i>
+                                <span class="text nav-text">Logout</span>
+                            </a>
+                        </li>
+                    </div>
+                </div>
+            </nav>
+            <section class="home">
+                <header>
+                    <div class="header_area">
+                        <div class="page_title">
+                            <h6 id="heading"></h6>
+                        </div>
+                        <div class="ms-auto dateAndTime" id="dateAndTime"></div>
+                        <div class="ms-2 user_details"><i class="bi bi-person-fill"></i></div>
+                    </div>
+                </header>
+                <div class="" id="page_content"></div>
+                <div id="load_js"></div>
+            </section>
+        </div>
+    </section>
+</body>
+<script src="../assets/js/script.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/jquery-3.6.4.js"></script>
+<script src="../assets/js/Chart.js"></script>
+<script src="../js/ajax.js"></script>
+<!-- Toaster -->
+<script src="../assets/plugins/Toaster/toast.script.js"></script>
+<script src="../assets/plugins/Toaster/toaster.js"></script>
+<!-- Data Table -->
+<script src="../assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="../assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="../assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+<script src="../assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+<script src="../assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+<script src="../assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script type="text/javascript">
+    loginContent('dashboard');
+</script>
+
+<!-- Loader -->
+<script type="text/javascript">
+    $(window).on("load", function () {
+
+        $(".loader").delay(1000).fadeOut(300);
+    });
+</script>
+
+<!-- JS for adding Design, When any nav item will be clicked That would be look like as selected -->
+<script>
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.forEach(item => item.classList.remove('active_menu'));
+            link.classList.add('active_menu');
+        });
+    });
+</script>
+
+<!-- JS for Responsive, When screen width will become 933, The nav will be closed -->
+<script>
+    function handleSidebarClass() {
+        const sidebar = document.querySelector(".sidebar");
+        const screenWidth = window.innerWidth;
+        if (screenWidth <= 933) {
+            sidebar.classList.add("close");
+        } else {
+            sidebar.classList.remove("close");
+        }
+    }
+    handleSidebarClass();
+    window.addEventListener("resize", function () {
+        handleSidebarClass();
+    });
+</script>
+
+
+<script>
+    function showDateTime() {
+        var myDiv = document.getElementById("dateAndTime");
+
+        var date = new Date();
+        var dayList = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        var monthNames = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ];
+        var dayName = dayList[date.getDay()];
+        var monthName = monthNames[date.getMonth()];
+        var today = `${dayName}, ${monthName} ${date.getDate()}, ${date.getFullYear()}`;
+        var hour = date.getHours();
+        var ampm = hour >= 12 ? 'PM' : 'AM';
+        hour = hour % 12 || 12; // Convert to 12-hour format
+        var min = date.getMinutes();
+        var sec = date.getSeconds();
+        var time = hour + ":" + (min < 10 ? '0' : '') + min + ":" + (sec < 10 ? '0' : '') + sec + " " + ampm;
+        myDiv.innerText = `${today} ${time}`;
+    }
+    setInterval(showDateTime, 1000);
+
+</script>
+
+
+</html>
