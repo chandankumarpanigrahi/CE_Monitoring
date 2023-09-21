@@ -1,0 +1,226 @@
+<section>
+    <div class="count_details outer_body">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="count_card count_card_1">
+                    <h1 class="count_no">03</h1>
+                    <h5 class="count_data">Total Number of Schemes</h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="count_card count_card_2">
+                    <h1 class="count_no">12</h1>
+                    <h5 class="count_data">Total Number of Sectors</h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="count_card count_card_3">
+                    <h1 class="count_no">1830k</h1>
+                    <h5 class="count_data">Total Expenditure</h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="count_card count_card_4">
+                    <h1 class="count_no">03</h1>
+                    <h5 class="count_data">Total Completed Scheme</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row charts_area">
+        <div class="col-md-4">
+            <div class="monitoring_card">
+                <h5>Scheme-wise Progress</h5>
+                <div class="schemeChart">
+                    <canvas id="schemeProgress" height="250" width="250"></canvas>
+                    <h2 class="schemeChart_progress">78%</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="monitoring_card">
+                <h5>Total Expenditure</h5>
+                <div class="schemeChart">
+                    <canvas id="exp_donutChart" height="250" width="250"></canvas>
+                    <h2 class="schemeChart_progress">42%</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="monitoring_card m-0">
+                <h5>Monthly Expenditure</h5>
+                <div class="schemeChart">
+                    <canvas id="lineChart" height="100"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row map_view">
+        <div class="col-md-12">
+            <div class="monitoring_card">
+                <div class="responsive-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1927139.1315802392!2d82.70459244062499!3d19.371593925288053!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a226aece9af3bfd%3A0x133625caa9cea81f!2sOdisha!5e0!3m2!1sen!2sin!4v1689935244533!5m2!1sen!2sin"
+                        width="600" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="../js/dashboard.js"></script>
+
+<!-- Project Progress Half-Pie Chart -->
+<script>
+    var circuference = 260; // deg
+
+    var data = {
+        labels: ["In-progress", "Completed"],
+        datasets: [
+            {
+                label: "My First Dataset",
+                data: [200, 120],
+                backgroundColor: [
+                    '#3586d0',
+                    '#81beec'
+                ]
+            }
+        ]
+    };
+
+    var config = {
+        type: "doughnut",
+        data: data,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            rotation: (circuference / 2) * -1,
+            circumference: circuference,
+            cutout: "80%",
+            borderWidth: 0,
+            borderRadius: function (context, options) {
+                const index = context.dataIndex;
+                let radius = {};
+                if (index == 0) {
+                    radius.innerStart = 50;
+                    radius.outerStart = 50;
+                }
+                if (index === context.dataset.data.length - 1) {
+                    radius.innerEnd = 50;
+                    radius.outerEnd = 50;
+                }
+                return radius;
+            },
+            plugins: {
+                title: false,
+                subtitle: false,
+                legend: {
+                    position: 'bottom',
+                }
+            },
+        }
+    };
+
+    var myChart = new Chart("schemeProgress", config);
+</script>
+
+
+<!-- Fund Expenditure Half-Pie Chart -->
+<script>
+    var circuference = 260; // deg
+
+    var data = {
+        labels: ["Utilized", "Remaining"],
+        datasets: [
+            {
+                label: "My First Dataset",
+                data: [100, 160],
+                backgroundColor: [
+                    '#d9a432',
+                    '#e4d58c'
+                ]
+            }
+        ]
+    };
+
+    var config = {
+        type: "doughnut",
+        data: data,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            rotation: (circuference / 2) * -1,
+            circumference: circuference,
+            cutout: "80%",
+            borderWidth: 0,
+            borderRadius: function (context, options) {
+                const index = context.dataIndex;
+                let radius = {};
+                if (index == 0) {
+                    radius.innerStart = 50;
+                    radius.outerStart = 50;
+                }
+                if (index === context.dataset.data.length - 1) {
+                    radius.innerEnd = 50;
+                    radius.outerEnd = 50;
+                }
+                return radius;
+            },
+            plugins: {
+                title: false,
+                subtitle: false,
+                legend: {
+                    position: 'bottom',
+                }
+            },
+        }
+    };
+    var myChart = new Chart("exp_donutChart", config);
+</script>
+
+<!-- Annual (Month-wise) Budget Progress Line Graph -->
+<script>
+    var PCTCtx = document.getElementById("lineChart").getContext("2d");
+    var PCTChart = new Chart(PCTCtx, {
+        type: 'line',
+        data: {
+            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            datasets: [
+                {
+                    label: "Sales",
+                    data: [100, 120, 130, 140, 127, 150, 140, 170, 170, 190],
+                    borderColor: "#695cfe",
+                    backgroundColor: '#695cfe',
+                    fill: false,
+                    tension: 0.4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: false,
+                        text: "Month"
+                    }
+                },
+                y: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: "Expenditure"
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    usePointStyle: true,
+                    pointStyle: 'rect',
+                }
+            },
+        }
+    });
+</script>

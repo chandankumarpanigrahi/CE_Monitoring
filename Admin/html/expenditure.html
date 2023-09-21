@@ -1,0 +1,142 @@
+<section>
+    <div class="outer_body">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="expenditure_count">
+                    <h3 class="nos_authority">145</h3>
+                    <h5 class="expenditure_type">Total Agreement</h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="expenditure_count">
+                    <h3 class="nos_authority">&#8377 <span>1,40,33,900</span></h3>
+                    <h5 class="authority_designation">Total Agreement Value</h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="expenditure_count">
+                    <h3 class="nos_authority">&#8377 <span>1,72,10,500</span></h3>
+                    <h5 class="authority_designation">Total Amount Released</h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="expenditure_count">
+                    <h3 class="nos_authority">&#8377 <span>10,00,00,000</span></h3>
+                    <h5 class="authority_designation">Total Budget</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="outer_body monitoring_card">
+        <div class="dropdown_area d-flex">
+            <div class="monitering_dropdown me-2">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select Division</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="monitering_dropdown me-2">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select Project</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="monitering_dropdown me-2">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select Block</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="monitering_dropdown me-2">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Select Financial Year</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="m-0">
+                <h5>Monthly Expenditure</h5>
+                <div class="schemeChart">
+                    <canvas id="lineChart" height="100"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="../js/expenditure.js"></script>
+
+<!-- Annual (Month-wise) Budget Progress Line Graph -->
+<script>
+    var PCTCtx = document.getElementById("lineChart").getContext("2d");
+    var PCTChart = new Chart(PCTCtx, {
+        type: 'bar',
+        data: {
+            labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            datasets: [
+                {
+                    label: "Sales",
+                    type: 'bar',
+                    data: [100, 120, 130, 140, 127, 150, 140, 170, 170, 190],
+                    borderColor: "#695cfe",
+                    backgroundColor: '#695cfe',
+                    borderRadius: 12,
+                    maxBarThickness: 40,
+                    fill: false,
+                    tension: 0.4
+                }, {
+                    label: "Sales",
+                    type: 'line',
+                    data: [100, 120, 130, 140, 127, 150, 140, 170, 170, 190],
+                    borderColor: "#f0a400",
+                    backgroundColor: '#f0a400',
+                    fill: false,
+                    tension: 0.4
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: false,
+                        text: "Month"
+                    }
+                },
+                y: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: "Expenditure"
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    usePointStyle: true,
+                    pointStyle: 'rect',
+                }
+            },
+            layout: {
+                padding: {
+                    left: 10,
+                    right: 10,
+                }
+            },
+            indexAxis: 'x',
+            barPercentage: 0.6,
+            categoryPercentage: 0.8,
+        }
+    });
+</script>
